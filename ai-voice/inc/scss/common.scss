@@ -169,7 +169,7 @@ body {
 
 				&::after {
 					content: '';
-					background: url(/images/ico_plus.png) no-repeat;
+					background: url(../../images/ico_plus.png) no-repeat;
 					background-size: contain;
 					display: inline-block;
 					width: 15px;
@@ -181,7 +181,7 @@ body {
 
 				&.active {
 					&::after {
-						background: url(/images/ico_minus.png) no-repeat;
+						background: url(../../images/ico_minus.png) no-repeat;
 						background-size: contain;
 						display: inline-block;
 						width: 15px;
@@ -279,7 +279,7 @@ input[type=number] {
 	background-color: $color-main-purple;
 
 	i {
-		background: url(/images/ico-mic-w.png) no-repeat;
+		background: url(../../images/ico-mic-w.png) no-repeat;
 		width: 18px;
 		height: 26px;
 	}
@@ -290,7 +290,7 @@ input[type=number] {
 	border: 1px solid #ddd;
 
 	i {
-		background: url(/images/ico-play-g.png) no-repeat;
+		background: url(../../images/ico-play-g.png) no-repeat;
 		width: 15px;
 		height: 22px;
 		margin-left: 5px;
@@ -298,7 +298,7 @@ input[type=number] {
 
 	&.active {
 		i {
-			background: url(/images/ico-play-p.png) no-repeat;
+			background: url(../../images/ico-play-p.png) no-repeat;
 			width: 15px;
 			height: 22px;
 		}
@@ -504,7 +504,7 @@ input[type=number] {
 		width: 9px;
 		height: 7px;
 		margin-top: -4px;
-		background: url(/images/ico-toggle.png) no-repeat;
+		background: url(../../images/ico-toggle.png) no-repeat;
 		background-size: contain;
 	}
 
@@ -646,7 +646,7 @@ input[type=number] {
 	&::after {
 		position: absolute;
 		content: '';
-		background: url(/images/ico-mic-b.png) no-repeat;
+		background: url(../../images/ico-mic-b.png) no-repeat;
 		background-size: contain;
 		width: 16px;
 		height: 24px;
@@ -1509,7 +1509,7 @@ input[type=number] {
 
 			&::before {
 				content: '';
-				background: url(/images/ico-mic-b.png) no-repeat;
+				background: url(../../images/ico-mic-b.png) no-repeat;
 				background-size: contain;
 				display: inline-block;
 				width: 15px;
