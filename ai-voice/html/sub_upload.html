@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI 음성인식 서비스</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="../inc/css/font.css">
+	<link rel="stylesheet" href="../inc/css/reset.css">
+	<link rel="stylesheet" href="../inc/css/common.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script src="../inc/js/common.js"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<div class="inner">
+				<div class="logo">
+					<a href="javascript:;">
+						<img src="../images/logo_chunjae.png" alt="천재교육">
+					</a>
+				</div>
+				<ul class="nav">
+					<li><a href="javascript:;">GUIDE</a></li>
+					<li class="active"><a href="javascript:;">SERVICE</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="inner">
+				<div class="tab-wrap">
+					<div class="top-box">
+						<ul class="tab-menu-type01">
+							<li class="ui-tab-btn active">
+								<a href="javascript:;">음성 인식</a>
+							</li>
+							<li class="ui-tab-btn">
+								<a href="javascript:;">스피킹 학습</a>
+							</li>
+						</ul>
+					</div>
+					<div class="contents on">
+						<div class="tab-top">
+							<div class="tit-box">
+								<div class="tit">AI 음성인식 서비스</div>
+								<p class="txt">인공지능으로 학습해 독보적인 정확도로 음성을 인식합니다.</p>
+							</div>
+							<ul class="tab-menu-type02">
+								<li class="ui-tab-btn">
+									<a href="javascript:;">마이크 사용</a>
+								</li>
+								<li class="ui-tab-btn active">
+									<a href="javascript:;">파일업로드</a>
+								</li>
+								<li class="ui-tab-btn">
+									<a href="javascript:;">샘플파일</a>
+								</li>
+							</ul>
+						</div>
+						<div class="content">
+							sub_mic.html으로 이동
+						</div>
+						<div class="content on">
+							<div class="select-box-wrap">
+								<div class="select-wrap">
+									<button type="button" class="select-btn">한국어 General</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">한국어 General</a>
+											<a href="javascript:;">영어 General</a>
+											<a href="javascript:;">중국어 General</a>
+										</li>
+									</ul>
+								</div>
+								<div class="select-wrap">
+									<button type="button" class="select-btn">Base 모델</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">밀크T 검색</a>
+											<a href="javascript:;">AI 탐험대</a>
+										</li>
+									</ul>
+								</div>
+								<div class="input-file-wrap">
+									<div class="search-box type-upload">
+										<span class="input-tit">파일명</span>
+										<!-- <input type="text" class="input-search" placeholder="선택한 파일 없음" readonly> -->
+										<!--파일 선택 전-->
+										<span class="file-name">파일명이 길 때 말줄임표로 표시됩니다. 테스트 중입니다. 더 길게 작성해볼게요.mp3</span><!-- 파일명 -->
+									</div>
+									<div class="btn-wrap">
+										<button class="btn-default">
+											파일선택
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="search-box-wrap">
+								<div class="search-box">
+									<span class="input-tit">키워드 검색</span>
+									<div class="input-wrap">
+										<div class="placeholder">
+											한글 입력 시 검색됩니다. <span class="point">소리내어 말해주세요. </span>
+										</div>
+										<input type="text" class="input-search">
+									</div>
+								</div>
+								<div class="mo-cnt">
+									<div class="guide-txt">
+										소리내어 말해주세요.
+									</div>
+								</div>
+							</div>
+
+							<!-- S 파일 업로드(준비) -->
+							<!-- <div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+
+									<div class="txt-wrap">
+										<img src="../images/ico-fileuplad.png" alt="파일 준비">
+										<div class="info-txt">파일 선택 버튼을 눌러 파일을 <br>업로드 해주세요.</div>
+										<div class="sub-txt">
+											<p>파일 용량 : 10MB 이하</p>
+											<p>파일 확장자 : wav,mp3, ogg, m4a</p>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<!-- E 파일 업로드(준비) -->
+
+							<!-- S 파일 업로드(로딩) -->
+							<div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+									<div class="txt-wrap">
+										<!-- S 230724 로딩이미지 수정-->
+										<img src="../images/ico-loading.gif" alt="파일 로딩" class="ico-loading">
+										<!-- <div class="loader" title="loading-img">
+											<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px"
+												viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+												<path fill="#000"
+													d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+													<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+														to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+												</path>
+											</svg>
+										</div> -->
+										<!-- E 230724 로딩이미지 수정-->
+										<div class="info-txt">음성 인식 중입니다.</div>
+
+									</div>
+								</div>
+							</div>
+							<!-- E 파일 업로드(로딩) -->
+
+							<!-- S 파일 업로드(결과) -->
+							<!-- <div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-play active"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt active">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+									<div class="result-wrap">
+										<div class="result-box scroll-inner">
+											<div class="result-txt-wrap">
+												<span><span class="current">초등학교</span> 영어 삼학년 듣기 평가를 시작하겠습니
+													다. 듣는 내용은 한 번만 들려 드립니다. 잘 듣고
+													답을 하시길 바랍니다. 수행평가 삶과 이차 씨 입
+													안에서
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<!-- E 파일 업로드(결과) -->
+
+
+							<div class="bottom-txt">제공되는 페이지는 체험을 목적으로 제공되며 상업적 용도를 비롯한 기타 다른 용도로 사용할 수 없습니다.
+								<br class="web-cnt">상업적 용도 및 기타 다른 용도로 활용을 원하실 경우 기술 문의를 통해 확인해주세요.</div>
+						</div>
+						<div class="content">
+							sub_upload.html으로 이동
+						</div>
+					</div>
+
+					<div class="contents">
+						sub_speaking.html으로 이동
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="inner">
+				<ul class="logo-link">
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaeedu.png" alt="천재교육">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaetext.png" alt="천재교과서">
+						</a>
+					</li>
+				</ul>
+				<div class="fam-site">
+					<button type="button" class="btn-toggle">FAMILY SITE
+						<ul class="open-select-list">
+							<li>
+								<a href="javascript:;" class="active">플랫폼관리자</a>
+							</li>
+
+						</ul>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

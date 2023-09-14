@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI 음성인식 서비스</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="../inc/css/font.css">
+	<link rel="stylesheet" href="../inc/css/reset.css">
+	<link rel="stylesheet" href="../inc/css/common.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.0/chart.min.js"></script>
+	<script src="../inc/js/common.js"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<div class="inner">
+				<div class="logo">
+					<a href="javascript:;">
+						<img src="../images/logo_chunjae.png" alt="천재교육">
+					</a>
+				</div>
+				<ul class="nav">
+					<li><a href="javascript:;">GUIDE</a></li>
+					<li class="active"><a href="javascript:;">SERVICE</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="inner">
+				<div class="tab-wrap">
+					<div class="top-box">
+						<ul class="tab-menu-type01">
+							<li class="ui-tab-btn ">
+								<a href="javascript:;">음성 인식</a>
+							</li>
+							<li class="ui-tab-btn active">
+								<a href="javascript:;">스피킹 학습</a>
+							</li>
+						</ul>
+					</div>
+					<div class="contents">
+						sub_mic.html으로 이동
+					</div>
+					<div class="contents on">
+						<div class="tab-top">
+							<div class="tit-box">
+								<div class="tit">외국어 말하기 서비스</div>
+								<p class="txt">인공지능으로 말하기를 평가합니다.</p>
+							</div>
+						</div>
+						<div class="content-area">
+							<div class="select-box-wrap">
+								<div class="select-wrap">
+									<button type="button" class="select-btn">한국어 General</button>
+									<ul class="select-list h110" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">영어 General</a>
+											<a href="javascript:;">한국어 General</a>
+											<a href="javascript:;">중국어 General</a>
+										</li>
+									</ul>
+								</div>
+								<div class="select-wrap">
+									<button type="button" class="select-btn">Base 모델</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">밀크T 검색</a>
+											<a href="javascript:;">AI 탐험대</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="select-box-wrap">
+								<div class="select-wrap type-full">
+									<button type="button" class="select-btn wfull">문장 선택</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">How is the weather today? <button type="button"
+													class="btn-sound"></button></a><!-- 230724 버튼 추가-->
+											<a href="javascript:;">What was the weather like yesterday? <button type="button"
+													class="btn-sound"></button></a><!-- 230724 버튼 추가-->
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- S 마이크 사용(준비) -->
+							<!-- <div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-mic"><i></i></button>
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+
+									<div class="txt-wrap">
+										<img src="../images/ico-before.png" alt="마이크 준비">
+										<div class="info-txt">마이크 연결 후 녹음 버튼을 눌러 <br>음성인식을 시작하세요.</div>
+									</div>
+								</div>
+							</div> -->
+							<!-- E 마이크 사용(준비) -->
+
+							<!-- S 마이크 사용(결과) -->
+							<div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-mic"><i></i></button>
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt active">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+									<div class="result-wrap">
+										<div class="result-box scroll-inner">
+											<div class="result-txt-wrap">
+												<span>초등학교 영어 삼학년 듣기 평가를 시작하겠습니
+													다. 듣는 내용은 한 번만 들려 드립니다. 잘 듣고
+													답을 하시길 바랍니다. 수행평가 삶과 이차 씨 입
+													안에서
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- E 마이크 사용(결과) -->
+						</div>
+
+						<div class="chart-area">
+
+							<div class="chart-box">
+								<div class="chart-top">
+									<div class="tit">발음 평가</div>
+									<div class="level-wrap type01">
+										<span>30점 미만</span>
+										<span>30점 이상~70점 미만</span>
+										<span>70점 이상</span>
+									</div>
+								</div>
+
+								<div class="range-wrap">
+									<div class="range">
+										<div class="bar color01">90</div>
+										<span class="btn-sound">My
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range fail">
+										<div class="bar color02">25</div>
+										<span class="btn-sound">Favorite
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range">
+										<div class="bar color01">80</div>
+										<span class="btn-sound">Movie
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range">
+										<div class="bar color01">100</div>
+										<span class="btn-sound">Is
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range">
+										<div class="bar color03">60</div>
+										<span class="btn-sound">Beauty
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range">
+										<div class="bar color01">100</div>
+										<span class="btn-sound">And
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range">
+										<div class="bar color01">90</div>
+										<span class="btn-sound">The
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="range fail">
+										<div class="bar color02">15</div>
+										<span class="btn-sound">Beast
+											<ul class="open-list">
+												<li><a href="javascript:;">원어민</a></li>
+												<li><a href="javascript:;">내 발음</a></li>
+											</ul>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="chart-box"><!-- 20230727 class 수정 -->
+								<div class="chart-top">
+									<div class="tit">억양 평가</div>
+									<div class="level-wrap type02">
+										<span>Teacher</span>
+										<span>User</span>
+									</div>
+								</div>
+								<div class="chart-wrap">
+									<div class="scroll-inner">
+										<canvas id="myChart" width="1080" height="300"></canvas>
+										<!-- s: 20230727 삭제 -->
+										<!-- <div class="labels-wrap">
+											<span class="label btn-sound">My
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound">Favorite
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound">Movie
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound">Is
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound orange">Beauty
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound ">And
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound">The
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+											<span class="label btn-sound red">Beast
+												<ul class="open-list">
+													<li><a href="javascript:;">원어민</a></li>
+													<li><a href="javascript:;">내 발음</a></li>
+												</ul>
+											</span>
+										</div> -->
+										<!-- e: 20230727 삭제 -->
+									</div>
+								</div>
+							</div>
+
+							<div class="chart-box mb0"><!-- 20230727 class 수정 -->
+								<div class="chart-top">
+									<div class="tit">문장 강세 평가</div>
+									<div class="level-wrap type02">
+										<span>Teacher</span>
+										<span>User</span>
+									</div>
+								</div>
+								<!--S 230724 btn-sound, open list 추가 -->
+								<!-- s: 20230727 수정 -->
+								<div class="scroll-inner">
+									<div class="align-c">
+										<div class="circle-wrap">
+											<div class="circle-box-wrap">
+												<div class="circle-box active">
+													<div class="circle">
+														<span class="half-circle top" data-width="80"></span>
+														<span class="half-circle bottom active" data-width="100"></span>
+													</div>
+													<span class="btn-sound txt orange active">My
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="100"></span>
+														<span class="half-circle bottom" data-width="100"></span>
+													</div>
+													<span class="btn-sound txt">Favorite
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="64"></span>
+														<span class="half-circle bottom" data-width="80"></span>
+													</div>
+													<span class="btn-sound txt">Movie
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="64"></span>
+														<span class="half-circle bottom" data-width="80"></span>
+													</div>
+													<span class="btn-sound txt">Is
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="100"></span>
+														<span class="half-circle bottom" data-width="88"></span>
+													</div>
+													<span class="btn-sound txt red">Beauty
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="55"></span>
+														<span class="half-circle bottom" data-width="55"></span>
+													</div>
+													<span class="btn-sound txt">And
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="46"></span>
+														<span class="half-circle bottom" data-width="55"></span>
+													</div>
+													<span class="btn-sound txt">The
+														<ul class="open-list">
+															<li><a href="javascript:;">원어민</a></li>
+															<li><a href="javascript:;">내 발음</a></li>
+														</ul>
+													</span>
+												</div>
+												<div class="circle-box">
+													<div class="circle">
+														<span class="half-circle top" data-width="46"></span>
+														<span class="half-circle bottom" data-width="55"></span>
+													</div>
+													<p class="txt">Beast</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- e: 20230727 수정 -->
+								<!--E 230724 btn-sound, open list 추가 -->
+							</div>
+							<div class="chart-box mb0"><!-- 20230727 class 수정 -->
+								<div class="chart-top">
+									<div class="tit">리듬&휴지</div>
+									<div class="level-wrap type02">
+										<span>Teacher</span>
+										<span>User</span>
+									</div>
+								</div>
+								<!--S 230724 btn-sound, open list 추가 -->
+								<!-- s: 20230727 수정 -->
+								<!-- bar 의 data-width max 값 120 -->
+								<div class="scroll-inner">
+									<div class="align-c">
+										<div class="rhythm-wrap">
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="100">
+														<span>1.2</span>
+														<ul class="time-sec">My
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+		
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="120">
+														<span>1.8</span>
+														<ul class="time-sec">My
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">My
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="106">
+														<span>1.3</span>
+														<ul class="time-sec">Favorite
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="80">
+														<span>0.8</span>
+														<ul class="time-sec">Favorite
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">Favorite
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="70">
+														<span>0.7</span>
+														<ul class="time-sec">Movie
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="90">
+														<span>0.9</span>
+														<ul class="time-sec">Movie
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound orange">Movie
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="60">
+														<span>0.3</span>
+														<ul class="time-sec">Is
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="60">
+														<span>0.3</span>
+														<ul class="time-sec">Is
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">Is
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-pause" data-width="60">
+														<span>0.3</span>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-pause" data-width="60">
+														<span>0.3</span>
+													</div>
+												</div>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="95">
+														<span>1.1</span>
+														<ul class="time-sec">Beauty
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="90">
+														<span>0.9</span>
+														<ul class="time-sec">Beauty
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">Beauty
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="40">
+														<span>0.1</span>
+														<ul class="time-sec">And
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="50">
+														<span>0.3</span>
+														<ul class="time-sec">And
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">And
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="66">
+														<span>0.4</span>
+														<ul class="time-sec">The
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="66">
+														<span>0.4</span>
+														<ul class="time-sec">The
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound">The
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+											<div class="rhythm active">
+												<div class="bar-wrap">
+													<div class="bar t-bar" data-width="116">
+														<span>1.8</span>
+														<ul class="time-sec">Beast
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="bar-wrap">
+													<div class="bar u-bar" data-width="100">
+														<span>1.2</span>
+														<ul class="time-sec">Beast
+															<li><span>Start 0.01</span></li>
+															<li><span>End 1.80</span></li>
+														</ul>
+													</div>
+												</div>
+												<span class="btn-sound red">Beast
+													<ul class="open-list">
+														<li><a href="javascript:;">원어민</a></li>
+														<li><a href="javascript:;">내 발음</a></li>
+													</ul>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- e: 20230727 수정 -->
+								<!--E 230724 btn-sound, open list 추가 -->
+							</div>
+						</div>
+
+						<div class="bottom-txt">제공되는 페이지는 체험을 목적으로 제공되며 상업적 용도를 비롯한 기타 다른 용도로 사용할 수 없습니다.
+							<br class="web-cnt">상업적 용도 및 기타 다른 용도로 활용을 원하실 경우 기술 문의를 통해 확인해주세요.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="inner">
+				<ul class="logo-link">
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaeedu.png" alt="천재교육">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaetext.png" alt="천재교과서">
+						</a>
+					</li>
+				</ul>
+				<div class="fam-site">
+					<button type="button" class="btn-toggle">FAMILY SITE
+						<ul class="open-select-list">
+							<li>
+								<a href="javascript:;" class="active">플랫폼관리자</a>
+							</li>
+
+						</ul>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// 억양 평가
+			const ctx = document.getElementById("myChart");
+
+			function updateFontSize() {
+				var fontSize = window.innerWidth <= 1203 ? 15 : 23;
+				myChart.options.scales.x.ticks.font.size = fontSize;
+				myChart.update();
+			}
+
+			var myChart = new Chart(ctx, {
+				type: "line",
+				data: {
+					labels: [
+						"My",
+						"Favorite",
+						"Movie",
+						"Is",
+						"Beauty",
+						"And",
+						"The",
+						"Beast",
+						"The",
+						"Beast",
+					],
+					datasets: [{
+							label: "Teacher",
+							data: [30, 25, 50, 80, 55, 96, 76, 45, 24, 30],
+							backgroundColor: "transparent",
+							borderColor: "rgb(232,134,162)",
+							borderWidth: 3,
+							lineTension: 0.5,
+						},
+						{
+							label: "User",
+							data: [50, 78, 89, 45, 19, 53, 38, 95, 50, 20],
+							backgroundColor: "transparent",
+							borderColor: "rgb(119,103,205)",
+							borderWidth: 3,
+							lineTension: 0.5,
+						},
+					],
+				},
+				options: {
+					elements: {
+						point: {
+							radius: 0,
+						},
+					},
+
+					responsive: false,
+					scales: {
+						x: {
+							ticks: {
+								autoSkip: false,
+								maxRotation: 0,
+								minRotation: 0,
+								display: true,
+								color: function (context) {
+									var label = context.tick.label;
+
+									if (label === "Favorite") {
+										return "#f9842e";
+									} else if (label === "Beast") {
+										return "#f75749";
+									}
+
+									return context.tick.labelColor;
+								},
+								font: function (context) {
+									var fontSize = window.innerWidth <= 1203 ? 15 : 23;
+
+									return {
+										weight: "500",
+										size: fontSize,
+										family: "Pretendard",
+									};
+								},
+							},
+							grid: {
+								display: false, /* 20230727 수정 */
+							},
+						},
+						y: {
+							// display: false, /* 230724 수정 */
+							grid: {
+								display: false,
+							},
+						},
+					},
+					plugins: {
+						tooltip: { /* 20230727 수정 */
+							enabled: true,
+							intersect:false
+						},
+						legend: {
+							display: false,
+						},
+					},
+				},
+			});
+
+			window.addEventListener("resize", updateFontSize);
+		})
+		
+	</script>
+</body>
+
+</html>

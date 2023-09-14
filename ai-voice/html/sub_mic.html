@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI 음성인식 서비스</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="../inc/css/font.css">
+	<link rel="stylesheet" href="../inc/css/reset.css">
+	<link rel="stylesheet" href="../inc/css/common.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script src="../inc/js/common.js"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<div class="inner">
+				<div class="logo">
+					<a href="javascript:;">
+						<img src="../images/logo_chunjae.png" alt="천재교육">
+					</a>
+				</div>
+				<ul class="nav">
+					<li><a href="javascript:;">GUIDE</a></li>
+					<li class="active"><a href="javascript:;">SERVICE</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="inner">
+				<div class="tab-wrap">
+					<div class="top-box">
+						<ul class="tab-menu-type01">
+							<li class="ui-tab-btn active">
+								<a href="javascript:;">음성 인식</a>
+							</li>
+							<li class="ui-tab-btn">
+								<a href="javascript:;">스피킹 학습</a>
+							</li>
+						</ul>
+					</div>
+					<div class="contents on">
+						<div class="tab-top">
+							<div class="tit-box">
+								<div class="tit">AI 음성인식 서비스</div>
+								<p class="txt">인공지능으로 학습해 독보적인 정확도로 음성을 인식합니다.</p>
+							</div>
+							<ul class="tab-menu-type02">
+								<li class="ui-tab-btn active">
+									<a href="javascript:;">마이크 사용</a>
+								</li>
+								<li class="ui-tab-btn">
+									<a href="javascript:;">파일업로드</a>
+								</li>
+								<li class="ui-tab-btn">
+									<a href="javascript:;">샘플파일</a>
+								</li>
+							</ul>
+						</div>
+						<div class="content on">
+							<div class="select-box-wrap">
+								<div class="select-wrap">
+									<button type="button" class="select-btn">한국어 General</button>
+									<ul class="select-list h110" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">한국어 General</a>
+											<a href="javascript:;">영어 General</a>
+											<a href="javascript:;">중국어 General</a>
+										</li>
+									</ul>
+								</div>
+								<div class="select-wrap">
+									<button type="button" class="select-btn">Base 모델</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">밀크T 검색</a>
+											<a href="javascript:;">AI 탐험대</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="search-box-wrap">
+								<div class="search-box">
+									<span class="input-tit">키워드 검색</span>
+									<div class="input-wrap">
+										<div class="placeholder">
+											한글 입력 시 검색됩니다. <span class="point">소리내어 말해주세요. </span>
+										</div>
+										<input type="text" class="input-search">
+									</div>
+								</div>
+								<div class="mo-cnt">
+									<div class="guide-txt">
+										소리내어 말해주세요.
+									</div>
+								</div>
+							</div>
+
+							<!-- S 마이크 사용(준비) -->
+							<!-- <div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-mic"><i></i></button>
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+
+									<div class="txt-wrap">
+										<img src="../images/ico-before.png" alt="마이크 준비">
+										<div class="info-txt">마이크 연결 후 녹음 버튼을 눌러 <br>음성인식을 시작하세요.</div>
+									</div>
+								</div>
+							</div> -->
+							<!-- E 마이크 사용(준비) -->
+
+							<!-- S 마이크 사용(결과) -->
+							<div class="cnt-box">
+								<div class="box left-area">
+									<div class="sound-area"></div>
+									<div class="control-area">
+										<div class="btn-wrap">
+											<button class="btn-icon btn-mic"><i></i></button>
+											<button class="btn-icon btn-play"><i></i></button>
+										</div>
+										<div class="time-wrap">
+											<span class="time-txt active">
+												<span class="min">00</span>
+												<span>:</span>
+												<span class="sec">00:00</span>
+											</span>
+											<div class="time-max">
+												최대 60:00
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box right-area">
+									<div class="result-wrap">
+										<div class="top-box scroll-inner">
+											<div class="result-txt-wrap">
+												<span><span class="current">My</span> favorite movie is beauty and beast</span><!-- 230720 current 클래스 추가-->
+											</div>
+										</div>
+										<div class="bottom-box scroll-inner">
+											<div class="word-wrap">
+												<ul class="word">My
+													<li>0.67 ~ 0.97 (score:99.044)</li>
+												</ul>
+												<ul class="word">Favorite
+													<li>0.98 ~ 0.99 (score:99.044)</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- E 마이크 사용(결과) -->
+
+
+							<div class="bottom-txt">제공되는 페이지는 체험을 목적으로 제공되며 상업적 용도를 비롯한 기타 다른 용도로 사용할 수 없습니다.
+								<br class="web-cnt">상업적 용도 및 기타 다른 용도로 활용을 원하실 경우 기술 문의를 통해 확인해주세요.</div>
+						</div>
+						<div class="content">
+							sub_file.html으로 이동
+						</div>
+						<div class="content">
+							sub_upload.html으로 이동
+						</div>
+					</div>
+					<div class="contents">
+						sub_speaking.html으로 이동
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="inner">
+				<ul class="logo-link">
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaeedu.png" alt="천재교육">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaetext.png" alt="천재교과서">
+						</a>
+					</li>
+				</ul>
+				<div class="fam-site">
+					<button type="button" class="btn-toggle">FAMILY SITE
+						<ul class="open-select-list">
+							<li>
+								<a href="javascript:;" class="active">플랫폼관리자</a>
+							</li>
+
+						</ul>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
