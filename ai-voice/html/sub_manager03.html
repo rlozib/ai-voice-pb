@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI 음성인식 서비스</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="../inc/css/font.css">
+	<link rel="stylesheet" href="../inc/css/reset.css">
+	<link rel="stylesheet" href="../inc/css/common.css">
+	<link rel="stylesheet" href="../inc/css/sub.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.0/chart.min.js"></script>
+	<script src="../inc/js/common.js"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<div class="inner">
+				<div class="logo">
+					<a href="javascript:;">
+						<img src="../images/logo_chunjae.png" alt="천재교육">
+					</a>
+				</div>
+				<ul class="nav">
+					<li><a href="javascript:;">GUIDE</a></li>
+					<li class="active"><a href="javascript:;">SERVICE</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="inner">
+				<div class="tab-wrap">
+					<div class="top-box">
+						<ul class="tab-menu-type01">
+							<li class="ui-tab-btn ">
+								<a href="javascript:;">음성 인식</a>
+							</li>
+							<li class="ui-tab-btn active">
+								<a href="javascript:;">스피킹 학습</a>
+							</li>
+						</ul>
+					</div>
+					<div class="contents">
+						sub_mic.html으로 이동
+					</div>
+					<div class="contents on">
+						<div class="tab-top">
+							<div class="tit-box">
+								<div class="tit">말하기 레퍼런스 관리</div>
+								<p class="txt">원어민 음성 파일 또는 문장 음성 합성(TTS)으로 레퍼런스를 등록합니다.</p>
+							</div>
+							<div class="select-box-wrap">
+								<div class="select-wrap">
+									<button type="button" class="select-btn">영어 발음평가</button>
+									<ul class="select-list h110" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">영어 발음평가</a>
+											<a href="javascript:;">한국어 General</a>
+											<a href="javascript:;">중국어 General</a>
+										</li>
+									</ul>
+								</div>
+								<div class="select-wrap">
+									<button type="button" class="select-btn">Base 모델</button>
+									<ul class="select-list" style="display: none;">
+										<li class="scroll-inner">
+											<a href="javascript:;">밀크T 검색</a>
+											<a href="javascript:;">AI 탐험대</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="step-tit-box">
+								<div class="tit">STEP1
+									<span>음성 레퍼런스 등록 방식을 선택해주세요.</span>
+								</div>
+							</div>
+							<ul class="tab-menu-type03">
+								<li class="ui-tab-btn">
+									<a href="javascript:;">
+										<div class="txt-box">
+											<div class="tit">음성학습(TTS)</div>
+											<span>텍스트로 입력한 문장을<br>음성으로 자동 변환하여 등록합니다.</span>
+										</div>
+										<button class="btn-icon type01 btn-tts"><i></i></button>
+									</a>
+								</li>
+								<li class="ui-tab-btn">
+									<a href="javascript:;">
+										<div class="txt-box">
+											<div class="tit">음성 파일 업로드</div>
+											<span>내 PC의 음성 파일을<br>레퍼런스 음성으로 등록합니다.</span>
+										</div>
+										<button class="btn-icon type01 btn-speaker"><i></i></button>
+									</a>
+								</li>
+								<li class="ui-tab-btn active">
+									<a href="javascript:;">
+										<div class="txt-box">
+											<div class="tit">음성 직접 녹음</div>
+											<span>직접 문장을 녹음하여<br>레퍼런스 음성을 등록합니다.</span>
+										</div>
+										<button class="btn-icon type01 btn-record"><i></i></button>
+										<em>*마이크 허용이 필요합니다.</em>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="content">sub_manager01.html으로 이동</div>
+						<div class="content">sub_manager02.html으로 이동</div>
+						<div class="content on">
+							<div class="record-cnt">
+								<div class="step-tit-box">
+									<div class="tit">STEP2
+										<span>평가할 문장을 입력하고, 해당하는<br class="mo-cnt"> 음성파일을 업로드해주세요.</span>
+									</div>
+								</div>
+								<div class="cont-tit-box">
+									<div class="tit">평가문장</div>
+								</div>
+								<div class="search-box-wrap type01">
+									<div class="search-box">
+										<div class="input-wrap">
+											<input type="text" placeholder="문장을 입력해 주세요.">
+										</div>
+									</div>
+								</div>
+
+								<div class="cont-tit-box">
+									<div class="tit">음성녹음</div>
+								</div>
+
+								<div class="record-box-wrap">
+									<!-- S 음성 녹음(전) -->
+									<!-- <div class="cnt-box">
+										<div class="box left-area">
+											<div class="btn-wrap">
+												<button class="btn-icon type01 btn-record"><i></i></button>
+											</div>
+										</div>
+										<div class="box right-area">
+											<div class="txt-wrap">
+												<img src="../images/ico-before.png" alt="녹음준비" class="ico-before">
+												<div class="info-txt">마이크 연결 후 녹음 버튼을<br> 눌러 음성인식을 시작하세요.</div>
+											</div>
+										</div>
+									</div> -->
+									<!-- E 음성 녹음(전) -->
+
+									<!-- S 음성 녹음(중) -->
+									<!-- <div class="cnt-box">
+										<div class="box left-area">
+											<div class="btn-wrap">
+												<button class="btn-icon type01 btn-pause"><i></i></button>
+											</div>
+										</div>
+										<div class="box right-area">
+											<div class="txt-wrap">
+												<img src="../images/ico-loading.gif" alt="녹음중" class="ico-loading">
+												<div class="info-txt">음성이 녹음되고 있습니다.</div>
+
+											</div>
+										</div>
+									</div> -->
+									<!-- E 음성 녹음(중) -->
+
+									<!-- S 음성 녹음(후) -->
+									<div class="cnt-box">
+										<div class="box left-area">
+											<div class="btn-wrap">
+												<button class="btn-icon type01 btn-record"><i></i></button>
+											</div>
+										</div>
+										<div class="box right-area">
+											<div class="txt-wrap">
+												<img src="../images/ico-finish.png" class="ico-finish" alt="녹음완료">
+												<div class="info-txt">녹음이 완료되었습니다.</div>
+
+												<div class="audio-box-wrap type02">
+													<audio class="audio-player" controls>
+														<source src="../inc/audio/초6영어(1회_11번).mp3" type="audio/mpeg">
+														Your browser does not support the audio eleme nt.
+													</audio>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- E 음성 녹음(후) -->
+								</div>
+								<div class="btn-wrap type01">
+									<button class="btn-default type02">등록</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="inner">
+				<ul class="logo-link">
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaeedu.png" alt="천재교육">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="../images/quick_chunjaetext.png" alt="천재교과서">
+						</a>
+					</li>
+				</ul>
+				<div class="fam-site">
+					<button type="button" class="btn-toggle">FAMILY SITE
+						<ul class="open-select-list">
+							<li>
+								<a href="javascript:;" class="active">플랫폼관리자</a>
+							</li>
+
+						</ul>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,605 @@
+@charset "UTF-8";
+@import "_mixin.scss";
+@import "_setting.scss";
+@import "common.scss";
+
+.btn-default {
+	&.type01 {
+		width: 127px;
+		@include font(18px, 600);
+	}
+
+	&.type02 {
+		width: 173px;
+		@include font(20px, 600);
+	}
+}
+
+.btn-icon {
+	&.type01 {
+		width: 118px;
+		height: 118px;
+		background-color: #fff;
+	}
+}
+
+.btn-record {
+	i {
+		background: url(../../images/ico-record-on.png) no-repeat;
+		width: 37px;
+		height: 52px;
+	}
+}
+
+.btn-pause {
+	i {
+		background: url(../../images/ico-pause.png) no-repeat;
+		width: 34px;
+		height: 34px;
+	}
+}
+
+.tab-menu-type03 {
+	overflow: hidden;
+	height: 100%;
+	@include layout-justify-center;
+	gap: 25px;
+
+	li {
+		width: 100%;
+		height: 328px;
+		position: relative;
+
+		a {
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			color: $color-black-type01;
+
+			.txt-box {
+				@include content-center;
+				flex-direction: column;
+
+				.tit {
+					@include font(25px, 700);
+				}
+
+				span {
+					@include font(20px, 500);
+					color: $color-gray-type01;
+					text-align: center;
+					margin: 15px 0 20px;
+				}
+			}
+
+			em {
+				position: absolute;
+				bottom: 15px;
+				color: $color-chart-red;
+				@include font(14px, 400);
+			}
+		}
+
+		&.active {
+			a {
+				color: #fff;
+				border-radius: 10px;
+				font-weight: 700;
+				background-color: $color-main-purple;
+
+				span {
+					color: #fff;
+				}
+
+				em {
+					color: #fff;
+				}
+			}
+
+			.btn-icon {
+				&.type01 {
+					background-color: #fff;
+				}
+			}
+
+			.btn-tts {
+				i {
+					background: url(../../images/ico-tts-on.png) no-repeat;
+					width: 60px;
+					height: 59px;
+				}
+			}
+
+			.btn-speaker {
+				i {
+					background: url(../../images/ico-sound-on.png) no-repeat;
+					width: 55px;
+					height: 43px;
+				}
+			}
+
+			.btn-record {
+				i {
+					background: url(../../images/ico-record-on.png) no-repeat;
+					width: 37px;
+					height: 52px;
+				}
+			}
+
+
+		}
+
+		.btn-icon {
+			&.type01 {
+				background-color: $color-main-purple;
+			}
+		}
+
+		.btn-tts {
+
+			i {
+				background: url(../../images/ico-tts-off.png) no-repeat;
+				width: 60px;
+				height: 59px;
+			}
+		}
+
+		.btn-speaker {
+			i {
+				background: url(../../images/ico-sound-off.png) no-repeat;
+				width: 55px;
+				height: 43px;
+			}
+		}
+
+		.btn-record {
+			i {
+				background: url(../../images/ico-record-off.png) no-repeat;
+				width: 37px;
+				height: 52px;
+			}
+		}
+	}
+}
+
+.btn-wrap {
+	&.type01 {
+		margin-top: 50px;
+	}
+}
+
+.btn-close {
+	background: url(../../images/ico-close.png);
+	width: 13px;
+	height: 13px;
+}
+
+.search-box-wrap {
+	&.type01 {
+		@include layout-justify-center;
+		width: 100%;
+		gap: 5px;
+
+		.search-box {
+			padding: 0;
+			margin: 0;
+
+			&::after {
+				content: '';
+				display: none;
+			}
+
+			::placeholder {
+				color: $color-gray-type02;
+			}
+		}
+	}
+}
+
+.step-tit-box {
+	margin: 55px 0 30px;
+
+	.tit {
+		position: relative;
+		@include font(30px, 600);
+		@include content-center;
+		color: $color-black-type01;
+		gap: 15px;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 6px;
+			height: 27px;
+			border-radius: 2.5px;
+			background-color: $color-black-type01;
+		}
+
+		span {
+			@include font(20px, 500);
+			color: #777;
+		}
+	}
+}
+
+.cont-tit-box {
+	margin: 30px 0 15px;
+
+	.tit {
+		position: relative;
+		@include font(25px, 600);
+		display: flex;
+		align-items: flex-end;
+		color: $color-black-type01;
+		gap: 15px;
+
+		span {
+			@include font(16px, 500);
+			color: #777;
+		}
+	}
+}
+
+.audio-box-wrap {
+	&.tyep01 {
+		width: 100%;
+		.audio-player {
+			width: 100%;
+			height: 50px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+		}
+	}
+
+	&.type02 {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.audio-player {	
+			width: 60%;
+		}
+	}
+
+	audio::-webkit-media-controls-play-button,
+	audio::-webkit-media-controls-panel {
+		border: 1px solid #ddd;
+		background-color: #fff;
+	}
+
+	audio::-webkit-media-controls-background {
+		background-color: #ff0000;
+	}
+}
+
+.input-file-wrap {
+	&.type01 {
+		.search-box {
+			margin: 0;
+
+			input {
+				padding: 0;
+			}
+
+			::placeholder {
+				color: $color-gray-type02;
+				@include font(16px, 400);
+			}
+
+			.file-name {
+				color: $color-black-type01;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+.file-wrap {
+	width: 100%;
+	@include layout-justify-center;
+}
+
+.type-txt {
+	@include font(14px, 500);
+	color: $color-chart-red;
+	margin-top: 10px;
+}
+
+.record-box-wrap {
+	position: relative;
+
+	.cnt-box {
+		height: 280px;
+
+		.box {
+			flex: auto;
+		}
+
+		.left-area {
+			width: 240px;
+			background-color: $color-main-purple;
+
+			.btn-wrap {
+				height: 100%;
+			}
+		}
+
+		.right-area {
+			width: calc(100% - 240px);
+		}
+	}
+}
+
+@media (max-width: 1203px) {
+	[class^='web-'] {
+		display: none !important;
+	}
+
+	[class^='web-flex-'] {
+		display: none !important;
+	}
+
+	[class^='mo-'] {
+		display: block !important;
+	}
+
+	[class^='mo-flex-'] {
+		display: flex !important;
+	}
+
+	.btn-wrap {
+		&.type01 {
+			margin-top: 20px;
+		}
+	}
+
+	.btn-default {
+		&.type02 {
+			width: 100%;
+			font-size: 15px;
+		}
+	}
+
+	.btn-icon {
+		&.type01 {
+			width: 55px;
+			height: 55px;
+		}
+	}
+
+	.btn-record {
+		i {
+			width: 17px;
+			height: 24px;
+			background-size: contain;
+		}
+	}
+
+	.btn-pause {
+		i {
+			width: 17px;
+			height: 17px;
+			background-size: contain;
+		}
+	}
+
+	.tab-menu-type03 {
+		flex-direction: column;
+		gap: 15px;
+
+		li {
+			height: 120px;
+
+			.btn-icon {
+				&.type01 {
+					width: 72px;
+					height: 72px;
+				}
+			}
+
+			.btn-tts {
+				i {
+					width: 35px;
+					height: 36px;
+					background-size: contain;
+				}
+			}
+
+			.btn-speaker {
+				i {
+					width: 34px;
+					height: 27px;
+					background-size: contain;
+				}
+			}
+
+			.btn-record {
+				i {
+					width: 25px;
+					height: 36px;
+					background-size: contain;
+				}
+			}
+
+			&.active {
+				.btn-tts {
+					i {
+						width: 35px;
+						height: 36px;
+						background-size: contain;
+					}
+				}
+
+				.btn-speaker {
+					i {
+						width: 34px;
+						height: 27px;
+						background-size: contain;
+					}
+				}
+
+				.btn-record {
+					i {
+						width: 25px;
+						height: 36px;
+						background-size: contain;
+					}
+				}
+			}
+
+			a {
+				flex-direction: row-reverse;
+				gap: 15px;
+				padding: 20px;
+				width: 100%;
+				justify-content: flex-end;
+
+				.txt-box {
+					align-items: flex-start;
+
+
+					.tit {
+						font-size: 18px;
+					}
+
+					span {
+						font-size: 14px;
+						text-align: left;
+						margin: 10px 0 0 0;
+					}
+				}
+
+				em {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.step-tit-box {
+		margin: 30px 0;
+
+		.tit {
+			font-size: 20px;
+			gap: 10px;
+
+			&::before {
+				width: 4px;
+				height: 15px;
+			}
+
+			span {
+				font-size: 15px;
+			}
+		}
+	}
+
+	.cont-tit-box {
+		.tit {
+			font-size: 16px;
+			gap: 10px;
+
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.search-box-wrap {
+		&.type01 {
+			width: 100%;
+			flex-direction: column;
+
+			.btn-wrap {
+				width: 100%;
+
+				.btn-default {
+					&.type01 {
+						width: 100%;
+						height: 47px;
+						@include font(15px, 400);
+					}
+				}
+			}
+		}
+	}
+
+	.input-file-wrap {
+		&.type01 {
+			flex-direction: column;
+
+			.search-box {
+				&.type-upload {
+					width: 100%;
+				}
+			}
+
+			.btn-wrap {
+				width: 100%;
+
+				.btn-default {
+					&.type01 {
+						width: 100%;
+						height: 47px;
+						font-size: 15px;
+					}
+				}
+			}
+		}
+	}
+
+	.record-box-wrap {
+		.cnt-box {
+			flex-direction: row;
+			height: 130px;
+
+			.left-area {
+				width: 100px;
+				height: 100%;
+				border-top-right-radius: 0;
+			}
+
+			.right-area {
+				width: calc(100% - 100px);
+
+				.txt-wrap {
+					.ico-before {
+						width: 85px;
+						height: 26px;
+					}
+
+					.ico-finish {
+						width: 35px;
+						height: 35px;
+					}
+
+					.info-txt {
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.audio-box-wrap {
+		&.type02 {
+			.audio-player {
+				position: absolute;
+				width: 100%;
+				height: 35px;
+				left: 0;
+				margin-top: 40px;
+			}
+		}
+	}
+
+	.record-cnt {
+		.btn-wrap {
+			&.type01 {
+				margin-top: 50px;
+			}
+		}
+	}
+}
